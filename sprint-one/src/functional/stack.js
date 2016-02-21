@@ -1,18 +1,22 @@
-var Stack = function(){
-  var someInstance = {};
+var Stack = function() {
+    var someInstance = {};
 
-  // Use an object with numeric keys to store values
-  var storage = {};
+    // Use an object with numeric keys to store values
+    var storage = {};
 
-  // Implement the methods below
-  someInstance.push = function(value){
-  };
+    // Implement the methods below
 
-  someInstance.pop = function(){
-  };
+    someInstance.push = function(value) {
+        someInstance.size();
+    };
 
-  someInstance.size = function(){
-  };
+    someInstance.pop = function() {};
 
-  return someInstance;
+    var count = -1;
+    someInstance.size = function() {
+        count++;
+        return count;
+    };
+
+    return someInstance;
 };
