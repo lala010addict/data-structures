@@ -10,12 +10,15 @@ var Stack = function() {
         someInstance.size();
     };
 
-    someInstance.pop = function() {};
+    someInstance.pop = function() {
+      count--;
+    };
 
-    var count = -1;
+    var count = 0;
     someInstance.size = function() {
-        count++;
-        return count;
+            count++;
+        return count-1;
+
     };
 
     return someInstance;
