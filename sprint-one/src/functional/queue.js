@@ -6,15 +6,19 @@ var Queue = function(){
 
   // Implement the methods below
 
-var count;
+var count = 0;
   someInstance.enqueue = function(value){
-    count++
+    count++;
   };
 
   someInstance.dequeue = function(){
+     count--;
   };
 
   someInstance.size = function(){
+    if (count < 0){
+      return 0;
+    }
     return count;
   };
 
