@@ -20,17 +20,38 @@
     })();
 
     reverse_linkedList = function(head) {
-        var next, p, prev;
-        // p = head;
-        prev = null;
+        // var next, p, prev;
+        // // p = head;
+        // prev = null;
+        // while (head) {
+        //     //save next
+        //     next = head.next;
+        //     //next is null
+        //     debugger;
+        //     head.next = prev;
+        //     // 
+        //     prev = head;
+        //     head = next;
+        // }
+        // return prev;
+
+        var prev = null;
         while (head) {
-            next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
+            var next = head.next
+            head.next = prev
+            prev = head
+            head = next
         }
-        return prev;
+
+        return prev
+
+
     };
+
+
+
+
+
 
     head = new ListNode(1);
 
@@ -39,6 +60,29 @@
     head.next.next = new ListNode(3);
 
     result = reverse_linkedList(head);
+
+    // var rverse = function (head) {
+    //    var prev = null;
+    //     while (head){
+    //         var next = head.next
+    //         head.next = prev
+    //         prev = head
+    //         head = next
+    //     }
+
+    //     return prev
+    // }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -64,14 +108,14 @@
 
     })();
 
-    reverse_linkedList = function(head) {
+    reverse_linkedList_recur = function(head) {
         var result, second;
         if (head === null || head.next === null) {
             return head;
         }
 
 
-        result = reverse_linkedList(head.next);
+        result = reverse_linkedList_recur(head.next);
         head.next.next = head;
         head.next = null;
 
@@ -84,7 +128,7 @@
 
     head.next.next = new ListNode(3);
 
-    result = reverse_linkedList(head);
+    result = reverse_linkedList_recur(head);
 
     while (result) {
         console.log(result.val);
