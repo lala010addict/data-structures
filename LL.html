@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var ListNode, head, result, reverse_linkedList;
+
+    ListNode = (function() {
+        function ListNode(val) {
+            this.val = val;
+            this.next = null;
+        }
+
+        return ListNode;
+
+    })();
+
+    reverse_linkedList = function(head) {
+        var next, p, prev;
+        // p = head;
+        prev = null;
+        while (head) {
+            next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    };
+
+    head = new ListNode(1);
+
+    head.next = new ListNode(2);
+
+    head.next.next = new ListNode(3);
+
+    result = reverse_linkedList(head);
+
+
+
+    while (result) {
+        console.log(result.val);
+        result = result.next;
+    }
+
+
+
+
+
+
+    var ListNode, head, result, reverse_linkedList;
+
+    ListNode = (function() {
+        function ListNode(val) {
+            this.val = val;
+            this.next = null;
+        }
+
+        return ListNode;
+
+    })();
+
+    reverse_linkedList = function(head) {
+        var result, second;
+        if (head === null || head.next === null) {
+            return head;
+        }
+
+
+        result = reverse_linkedList(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return result;
+    };
+
+    head = new ListNode(1);
+
+    head.next = new ListNode(2);
+
+    head.next.next = new ListNode(3);
+
+    result = reverse_linkedList(head);
+
+    while (result) {
+        console.log(result.val);
+        result = result.next;
+    }
+    </script>
+</body>
+
+</html>
